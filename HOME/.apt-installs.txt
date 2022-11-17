@@ -1,0 +1,11 @@
+clang
+git
+python3-pip
+lolcat
+cowsay
+sl
+make
+nasm
+binutils
+llvm-14
+gcc-multilib
