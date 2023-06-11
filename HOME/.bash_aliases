@@ -4,4 +4,4 @@ alias mov="mv -v"
 alias cpv='cp -v'
 alias clang='clang-14'
 alias clang++='clang++-14'
-alias flush_bin="rm -r ~/.recycle_bin/* && echo 'Emptied Bin'"
+alias empty_bin="rm -r ~/.recycle_bin/* && echo 'Emptied Bin'"

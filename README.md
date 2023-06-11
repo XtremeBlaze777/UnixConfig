@@ -13,6 +13,7 @@ These are some useful configuration tidbits that I have found useful for working
 	- cdir: makes a directory AND enters it (must be sourced)
 	- purge: removes an empty directory AND leaves it (must be sourced)
 	- calc: python script that prints out whatever you pass as a parameter (I typically use it as a calculator)
+	- del: substitute for rm that moves to a recycle bin (flushed with `empty_bin`)
 * bash profile adds my bashscripts to my path
 * git configurations: set vim as the default text editor, and force unix-style LF line endings
 * bash configurations which are mainly just aliases, including aliasing all of my bashscripts to `source bashscript`
