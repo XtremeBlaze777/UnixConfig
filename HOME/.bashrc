@@ -91,27 +91,6 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias py='python3'
-alias mov="mv -v"
-alias clang='clang-14'
-alias clang++='clang++-14'
-
-# alias user scripts to run in the shell they are called
-if [ -d $HOME/.scripts ]; then
-	for File in $HOME/.scripts/*; do
-		if [ -f $File ]; then
-
-			# The {} does parameter expansion and ## means delete the largest pattern following.
-			# so this deletes the largest pattern matching */ (everything up until the current dir)
-			file=${File##*/}
-
-			# Except the above pattern would erase the root / directory
-			# File=${File:-/} # :- means set only if the var is empty
-
-			alias $file='source $file'
-		fi
-	done
-fi
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -125,6 +104,9 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+# alias user scripts to run in the shell they are called (work in progress)
+# $HOME/.script_sourcer.sh
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
