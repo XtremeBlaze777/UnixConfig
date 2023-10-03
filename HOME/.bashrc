@@ -74,6 +74,12 @@ esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
+
+	if [ ! -f ~/.dircolors ]; then
+		# https://stackoverflow.com/questions/40574819/how-to-remove-dir-background-in-ls-color-output
+		dircolors -p | sed "s/OTHER_WRITABLE 34;42/OTHER_WRITABLE 34;01/" > ~/.dircolors
+	fi
+
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
@@ -91,6 +97,35 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+# other aliases
+alias py='python3'
+alias mov="mv -v"
+alias cpv="cp -v"
+alias what="alias | grep"
+alias hunt="grep -rn . -e"
+alias unzip="p7zip -d"
+alias cpd="echo $(pwd) | clip.exe"
+alias empty_bin="rm -r ~/.recycle_bin/* && echo 'Emptied Bin'"
+alias httpd="sudo service apache2"
+
+# alias user scripts to run in the shell they are called
+if [ -d $HOME/.scripts ]; then
+	for File in $HOME/.scripts/*; do
+		if [ -f $File ]; then
+
+			# The {} does parameter expansion and ## means delete the largest pattern following.
+			# so this deletes the largest pattern matching */ (everything up until the current dir)
+			file=${File##*/}
+
+			# Except the above pattern would erase the root / directory
+			File=${File:-/} # :- means set only if the var is empty
+
+			# this a failure L
+			# alias $file='source $file'
+		fi
+	done
+fi
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -119,6 +154,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# something something Rust
-. "$HOME/.cargo/env"
+# Enable Rust if it's installed
+if [ -d "$HOME/.cargo/env" ] ; then
+	. "$HOME/.cargo/env"
+fi
 

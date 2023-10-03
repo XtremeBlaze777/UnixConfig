@@ -4,11 +4,10 @@ These are some useful configuration tidbits that I have found useful for working
 ## Notable features
 
 #### vimrc
-* Various configurations for the vim text editor (such as syntax highlighting, line numbers, using a mouse, etc)
+* Various configurations for the vim text editor (such as syntax highlighting, line numbers, tab spacing, etc)
 
 #### $HOME/.dotfiles
 * apt packages I want installed on all my machines
-* ssh keys I always want the ssh agent to have access to
 * bashscripts that I have added to my path
 	- cdir: makes a directory AND enters it (must be sourced)
 	- purge: removes an empty directory AND leaves it (must be sourced)

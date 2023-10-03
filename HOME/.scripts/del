@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ $# -eq 0 ]; then
-    echo "Error: provide a file/directory to delete"
+    echo "Error: provide files/directories to delete"
     exit 1
 fi
 mv $@ ~/.recycle_bin
